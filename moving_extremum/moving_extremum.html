@@ -1,0 +1,20 @@
+<head>
+    <title>moving_min_max</title>
+</head>
+
+<body>
+    <p>Input number array(seperated by spaces):</p>
+    <input id="input_array" style="text-align:left; width:500px;" type="text" value="3 5 1 6 3 10 5 3 6 2 4 2 5"><br>
+    <p>Sliding window size:</p>
+    <input id="window_size" style="text-align:left; width:100px;" maxlength="5" type="text" value="4"><br>
+    <br>
+    <button onclick="get_moving_extremum()">Generate moving min-max array</button>
+    <p>Results:</p>
+    <p id="msg"></p>
+    <p>Moving maximum:</p>
+    <p id="res_max"></p>
+    <p>Moving minimum:</p>
+    <p id="res_min"></p>
+
+    <script src="moving_extremum.js"></script>
+</body>
