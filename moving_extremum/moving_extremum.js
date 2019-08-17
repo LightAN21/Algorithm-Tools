@@ -59,6 +59,8 @@ function show_result(res) {
     msg.innerHTML = "";
     if (res == 0){
         msg.innerHTML = "Error! Sliding window size should be bigger than 0.";
+        res_max.innerHTML = "";
+        res_min.innerHTML = "";
         return ;
     }
     res_max.innerHTML = '[' + (res.max).join(', ') + ']';
