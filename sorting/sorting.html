@@ -1,0 +1,45 @@
+<head>
+    <title>Sorting</title>
+</head>
+
+<body>
+    <h3>Sorintg Algorithms</h3>
+    <p>Given an integer array, sort the array in ascending or descending order.</p>
+    <p>Input number array(seperated by spaces):</p>
+    <input id="input_array" style="text-align:left; width:500px;" type="text" value="3 5 1 6 3 10 5 3 6 2 4 2 5"><br>
+    <br>
+    <button onclick="heap_sort()">Heap sort</button>
+    <button onclick="merge_sort()">Merge sort</button>
+    <p>Result(ascending):</p>
+    <p id="res_ascending"></p>
+    <p>Result(descending):</p>
+    <p id="res_descending"></p>
+
+    <script src="heap_sort.js"></script>
+    <script src="merge_sort.js"></script>
+    <script>
+        var input_array = document.getElementById("input_array");
+        var res_ascending = document.getElementById("res_ascending");
+        var res_descending = document.getElementById("res_descending");
+
+        function heap_sort(){
+            var arr = input_array.value.split(/\s+/).map(Number);
+            var arr_2 = [...arr];
+
+            console.log('heap sort');
+            res_ascending.innerHTML = '[' + heap_sort_ascending(arr).join(', ') + ']';
+            res_descending.innerHTML = '[' + heap_sort_descending(arr_2).join(', ') + ']';
+        }
+
+        function merge_sort(){
+            var arr = input_array.value.split(/\s+/).map(Number);
+            var arr_2 = [...arr];
+
+            console.log('merge sort');
+            merge_sort_ascending(arr);
+            merge_sort_descending(arr_2);
+            res_ascending.innerHTML = '[' + arr.join(', ') + ']';
+            res_descending.innerHTML = '[' + arr_2.join(', ') + ']';
+        }
+    </script>
+</body>
