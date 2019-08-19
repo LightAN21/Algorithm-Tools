@@ -1,5 +1,6 @@
-// Source:
+// Source reference:
 // https://www.geeksforgeeks.org/heap-sort/
+// I changed the recursive method to iterative method.
 
 function max_heapify(arr, len, root) {
     var i, left, right, tmp;
