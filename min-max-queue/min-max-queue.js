@@ -18,10 +18,10 @@ function new_min_max_queue() {
 }
 
 function save_min_max_to_node(node, latest, data) {
-    if (latest == undefined){
+    if (latest == undefined) {
         node.min = data;
         node.max = data;
-        return ;
+        return;
     }
     if (data >= latest.max)
         node.max = data;
@@ -58,15 +58,15 @@ function min_max_queue_pop() {
         return null;
     }
     var data = this.stack_1.pop().data;
-    
+
     this.length--;
-    if (this.stack_1.length == 0 && this.stack_2.length == 0){
+    if (this.stack_1.length == 0 && this.stack_2.length == 0) {
         this.front = null;
         this.tail = null;
         return data;
     }
     if (this.stack_1.length == 0) {
-        while (this.stack_2.length){
+        while (this.stack_2.length) {
             var n = this.stack_2.pop();
             var latest = this.stack_1[this.stack_1.length - 1];
             save_min_max_to_node(n, latest, n.data);
@@ -122,20 +122,35 @@ function min_max_queue_get_tail() {
 function min_max_queue_print() {
     var str = '[ ';
     if (this.front != null) {
-        for (var i = this.stack_1.length - 1; i >= 0; i--){
+        for (var i = this.stack_1.length - 1; i >= 0; i--) {
             str += this.stack_1[i].data + ' ';
         }
-        for (var i = 0; i < this.stack_2.length; i++){
+        for (var i = 0; i < this.stack_2.length; i++) {
             str += this.stack_2[i].data + ' ';
         }
     }
     str += ']';
     console.log('Main queue:');
     console.log(str);
+    console.log('min: ' + this.get_min());
+    console.log('max: ' + this.get_max());
     console.log('stack_1:');
-    console.log(this.stack_1);
+    print_array(this.stack_1, 1);
     console.log('stack_2:');
-    console.log(this.stack_2);
+    print_array(this.stack_2, 2);
     console.log('======================');
+    return str;
+}
+
+function print_array(arr, n) {
+    var str = '[ ';
+
+    if (arr.length != 0) {
+        for (var i = 0 ; i < arr.length; i++){
+            str += arr[i].data + ' ';
+        }
+    }
+    str += ']';
+    console.log(str);
     return str;
 }
