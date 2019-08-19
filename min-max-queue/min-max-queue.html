@@ -15,17 +15,31 @@
     <input id="push_value" style="text-align:left; width:50px;" maxlength="5" type="text" value="">
     <br>
     <button onclick="pop_button_click()">pop first</button>
+    <p>First: <a id="queue_front"></a></p>
+    <p>Last: <a id="queue_tail"></a></p>
     <p>Minimum: <a id="queue_min"></a></p>
     <p>Maximum: <a id="queue_max"></a></p>
     <p>========================================================</p>
-
+    <p>Algorithm details:</p>
+    <p>queue arrays:</p>
+    <p id="double_stacks">[ ][ ]</p>
+    <p>max arrays:</p>
+    <p id="max_stacks">[ ][ ]</p>
+    <p>min arrays:</p>
+    <p id="min_stacks">[ ][ ]</p>
+    <p>========================================================</p>
 
     <script src="min-max-queue.js"></script>
     <script>
         var q = new_min_max_queue();
         var queue_status = document.getElementById("queue_status");
+        var queue_front = document.getElementById("queue_front");
+        var queue_tail = document.getElementById("queue_tail");
         var queue_min = document.getElementById("queue_min");
         var queue_max = document.getElementById("queue_max");
+        var double_stacks = document.getElementById("double_stacks");
+        var max_stacks = document.getElementById("max_stacks");
+        var min_stacks = document.getElementById("min_stacks");
 
         function push_button_click() {
             var push_value = document.getElementById("push_value");
@@ -48,8 +62,19 @@
 
         function update_status() {
             queue_status.innerHTML = q.print();
+            queue_front.innerHTML = q.get_front();
+            queue_tail.innerHTML = q.get_tail();
             queue_min.innerHTML = q.get_min();
             queue_max.innerHTML = q.get_max();
+            double_stacks.innerHTML = update_stacks("data");
+            min_stacks.innerHTML = update_stacks("min");
+            max_stacks.innerHTML = update_stacks("max");
+        }
+
+        function update_stacks(type){
+            var s1 = get_array_reverse(q.stack_1, type);
+            var s2 = get_array(q.stack_2, type);
+            return s1 + ' ' + s2;
         }
     </script>
 </body>

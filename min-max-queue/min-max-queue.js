@@ -108,14 +108,14 @@ function min_max_queue_get_max() {
 }
 
 function min_max_queue_get_front() {
-    if (this.min_queue.front != null)
-        return this.min_queue.front.data;
+    if (this.front != null)
+        return this.front.data;
     return null;
 }
 
 function min_max_queue_get_tail() {
-    if (this.max_queue.tail != null)
-        return this.max_queue.tail.data;
+    if (this.tail != null)
+        return this.tail.data;
     return null;
 }
 
@@ -142,7 +142,7 @@ function min_max_queue_print() {
     return str;
 }
 
-function print_array(arr, n) {
+function print_array(arr) {
     var str = '[ ';
 
     if (arr.length != 0) {
@@ -152,5 +152,29 @@ function print_array(arr, n) {
     }
     str += ']';
     console.log(str);
+    return str;
+}
+
+function get_array(arr, type){
+    var str = '[ ';
+
+    if (arr.length != 0) {
+        for (var i = 0 ; i < arr.length; i++){
+            str += arr[i][type] + ' ';
+        }
+    }
+    str += ']';
+    return str;
+}
+
+function get_array_reverse(arr, type){
+    var str = '[ ';
+
+    if (arr.length != 0) {
+        for (var i = arr.length - 1 ; i >= 0; i--){
+            str += arr[i][type] + ' ';
+        }
+    }
+    str += ']';
     return str;
 }
