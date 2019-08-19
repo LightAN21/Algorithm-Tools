@@ -4,20 +4,52 @@
 
 <body>
     <h3>Min-Max-Queue</h3>
-    <p>Implement a queue in which get_min(), and get_max() are constant time operations; push() and pop() are amortized constant time operations.
-    </p>
-    <button onclick="">queue push</button>
-    <br>
-    <button onclick="">queue pop</button>
-    <p id="msg"></p>
+    <p>Implement a queue which satisfies the following conditions:</p>
+    <p>(1) get_min() and get_max() are constant time operations.</p>
+    <p>(2) push() and pop() are amortized constant time operations.</p>
     <p>========================================================</p>
+    <p id="msg"></p>
     <p>Queue status:</p>
     <p id="queue_status">[ ]</p>
-    <p>Minimum:</p>
-    <p id="queue_min">null</p>
-    <p>Maximum:</p>
-    <p id="queue_max">null</p>
+    <button onclick="push_button_click()">push last</button>
+    <input id="push_value" style="text-align:left; width:50px;" maxlength="5" type="text" value="">
+    <br>
+    <button onclick="pop_button_click()">pop first</button>
+    <p>Minimum: <a id="queue_min"></a></p>
+    <p>Maximum: <a id="queue_max"></a></p>
+    <p>========================================================</p>
 
-    <script src="queue.js"></script>
+
     <script src="min-max-queue.js"></script>
+    <script>
+        var q = new_min_max_queue();
+        var queue_status = document.getElementById("queue_status");
+        var queue_min = document.getElementById("queue_min");
+        var queue_max = document.getElementById("queue_max");
+
+        function push_button_click() {
+            var push_value = document.getElementById("push_value");
+            var value = Number(push_value.value);
+
+            q.push(value);
+            console.log("push: " + value);
+            console.log("----------------------");
+            update_status();
+            push_value.value = "";
+        }
+
+        function pop_button_click() {
+            var value = q.pop();
+
+            console.log("pop: " + value);
+            console.log("----------------------");
+            update_status();
+        }
+
+        function update_status() {
+            queue_status.innerHTML = q.print();
+            queue_min.innerHTML = q.get_min();
+            queue_max.innerHTML = q.get_max();
+        }
+    </script>
 </body>

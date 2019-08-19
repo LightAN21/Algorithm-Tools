@@ -78,8 +78,8 @@ function min_max_queue_pop() {
 }
 
 function min_max_queue_get_min() {
-    var n1 = stack_1[stack_1.length - 1];
-    var n2 = stack_2[stack_2.length - 1];
+    var n1 = this.stack_1[this.stack_1.length - 1];
+    var n2 = this.stack_2[this.stack_2.length - 1];
 
     if (n1 == undefined && n2 == undefined)
         return null;
@@ -93,8 +93,8 @@ function min_max_queue_get_min() {
 }
 
 function min_max_queue_get_max() {
-    var n1 = stack_1[stack_1.length - 1];
-    var n2 = stack_2[stack_2.length - 1];
+    var n1 = this.stack_1[this.stack_1.length - 1];
+    var n2 = this.stack_2[this.stack_2.length - 1];
 
     if (n1 == undefined && n2 == undefined)
         return null;
@@ -139,12 +139,3 @@ function min_max_queue_print() {
     console.log('======================');
     return str;
 }
-
-var q = new_min_max_queue();
-
-q.push(5);
-q.push(10);
-q.push(3);
-q.push(6);
-
-q.print();
