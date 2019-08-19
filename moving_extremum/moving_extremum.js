@@ -1,11 +1,3 @@
-function get_moving_extremum() {
-    var arr = document.getElementById("input_array").value.split(/\s+/).map(Number);
-    var win_size = Number(document.getElementById("window_size").value);
-    var res = moving_extremum_algorithm(arr, win_size);
-
-    show_result(res);
-    debug(arr, win_size, res);
-}
 
 // Time complexity: O(n), where n is the length of the input array.
 // Space complexity: O(n).
@@ -49,30 +41,4 @@ function moving_extremum_algorithm(arr, win_size) {
         max: res_max,
         min: res_min,
     };
-}
-
-function show_result(res) {
-    var msg = document.getElementById("msg");
-    var res_max = document.getElementById("res_max");
-    var res_min = document.getElementById("res_min");
-
-    msg.innerHTML = "";
-    if (res == 0){
-        msg.innerHTML = "Error! Sliding window size should be bigger than 0.";
-        res_max.innerHTML = "";
-        res_min.innerHTML = "";
-        return ;
-    }
-    res_max.innerHTML = '[' + (res.max).join(', ') + ']';
-    res_min.innerHTML = '[' + (res.min).join(', ') + ']';
-}
-
-function debug(arr, win_size, res) {
-    console.log("Input array:");
-    console.log(arr);
-    console.log("Input window size: " + win_size);
-    console.log('');
-    console.log("Result:");
-    console.log(res);
-    console.log('----------------------------------------');
 }
