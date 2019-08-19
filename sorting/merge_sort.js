@@ -1,3 +1,6 @@
+// Source:
+// http://notepad.yehyeh.net/Content/Algorithm/Sort/Merge/Merge.php
+
 function merge_sort_ascending(arr) {
     var i, leftMin, leftMax, rightMin, rightMax, next;
     var tmp = new Array();

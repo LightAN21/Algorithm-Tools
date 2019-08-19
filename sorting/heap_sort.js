@@ -1,3 +1,6 @@
+// Source:
+// https://www.geeksforgeeks.org/heap-sort/
+
 function max_heapify(arr, len, root) {
     var i, left, right, tmp;
 
