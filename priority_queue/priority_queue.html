@@ -1,0 +1,63 @@
+<head>
+        <title>Priority Queue</title>
+    </head>
+    
+    <body>
+        <h3>Priority Queue</h3>
+        <p>Working in progress...</p>
+        <!-- <p>Implement a queue which satisfies the following conditions:</p>
+        <p>(1) Every item has a priority associated with it.</p>
+        <p>(2) An element with high priority is dequeued before an element with low priority.</p>
+        <p>(3) If two elements have the same priority, they are served according to their order in the queue.</p>
+        <p>========================================================</p>
+        <p id="msg"></p>
+        <p>Queue status:</p>
+        <p id="queue_status">[ ]</p>
+        <button onclick="push_button_click()">push rear</button>
+        <input id="push_value" style="text-align:left; width:50px;" maxlength="5" type="text" value="">
+        <br>
+        <button onclick="pop_button_click()">pop min</button>
+        <p>First: <a id="queue_front"></a></p>
+        <p>Last: <a id="queue_rear"></a></p>
+        <p>Minimum: <a id="queue_min"></a></p>
+        <p>Maximum: <a id="queue_max"></a></p>
+        <p>========================================================</p> -->
+    
+        <script src="priority_queue.js"></script>
+        <script>
+            var q = new_priority_queue();
+            var queue_status = document.getElementById("queue_status");
+            var queue_front = document.getElementById("queue_front");
+            var queue_rear = document.getElementById("queue_rear");
+            var queue_min = document.getElementById("queue_min");
+            var queue_max = document.getElementById("queue_max");
+    
+            function push_button_click() {
+                var push_value = document.getElementById("push_value");
+                var value = Number(push_value.value);
+    
+                q.push(value);
+                console.log("push: " + value);
+                console.log("----------------------");
+                update_status();
+                push_value.value = "";
+            }
+    
+            function pop_button_click() {
+                var value = q.pop();
+    
+                console.log("pop: " + value);
+                console.log("----------------------");
+                update_status();
+            }
+    
+            function update_status() {
+                queue_status.innerHTML = q.print();
+                queue_front.innerHTML = q.get_front();
+                queue_rear.innerHTML = q.get_rear();
+                queue_min.innerHTML = q.get_min();
+                queue_max.innerHTML = q.get_max();
+            }
+    
+        </script>
+    </body>
