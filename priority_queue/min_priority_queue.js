@@ -54,17 +54,21 @@ function min_priority_queue_pop_min() {
         return null;
     melt_children_to_root_list(m);
     for (n = this.first; n != this.first || mark != 1; n = n.next) {
-        if (n.priority < this.min.priority){
+
+        if (n.priority < this.min.priority) {
             this.min = n;
         }
-        if (num[n.rank] == undefined) {
-            num[n.rank] = n;
+
+        var pre = num[n.rank]
+        if (pre == undefined) {
+            pre = n;
         }
-        else if (num[n.rank].priority <= n.priority){
+        else if (pre.priority <= n.priority) {
+            add_tree_to_children(n, pre);
             
         }
         else {
-
+            add_tree_to_children(pre, n);
         }
         if (mark == 0)
             mark = 1;
@@ -74,7 +78,7 @@ function min_priority_queue_pop_min() {
 
 function melt_children_to_root_list(m) {
     if (m == null)
-        return ;
+        return;
     if (m.children_first == null) {
         m.pre.next = m.next;
         m.next.pre = m.pre;
@@ -86,6 +90,23 @@ function melt_children_to_root_list(m) {
         m.next.pre = m.children_last;
     }
     this.min = this.first;
+}
+
+// add tree n to children of m.
+function add_tree_to_children(n, m) {
+    if (m.children_first == null) {
+        m.children_first = n;
+        m.children_last = n;
+        n.pre = n;
+        n.next = n;
+    }
+    else {
+        n.next = m.children_first;
+        n.pre = m.children_last;
+        m.children_last.next = n;
+        m.children_first.pre = n;
+        m.children_last = n;
+    }
 }
 
 function min_priority_queue_get_min_data() {
