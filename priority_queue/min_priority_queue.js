@@ -6,10 +6,7 @@ function new_min_priority_queue() {
         length: 0,
         push: min_priority_queue_push,
         pop_min: min_priority_queue_pop_min,
-        get_min: min_priority_queue_get_min,
-        get_front: min_priority_queue_get_front,
-        get_rear: min_priority_queue_get_rear,
-        print: min_priority_queue_print,
+        get_min: min_priority_queue_get_min_data,
     };
     return q;
 }
@@ -49,18 +46,15 @@ function min_priority_queue_push(data, priority) {
 
 }
 function min_priority_queue_pop_min() {
+    var m = this.min;
 
+
+
+    return m;
 }
+
 function min_priority_queue_get_min() {
-
+    return this.min.data;
 }
-function min_priority_queue_get_front() {
 
-}
-function min_priority_queue_get_rear() {
-
-}
-function min_priority_queue_print() {
-
-}
 
