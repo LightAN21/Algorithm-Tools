@@ -36,11 +36,13 @@ function min_priority_queue_pop_min() {
 
     if (m == null)
         return null;
-    melt_children_to_root_list(m, this.root_list);
+    melt_children_list_to_root_list(m, this.root_list);
     this.min = this.first;
+
+    return m;
 }
 
-function melt_children_to_root_list(m, root_list) {
+function melt_children_list_to_root_list(m, root_list) {
     if (m == null)
         return;
     if (m.children_list.first == null) {
