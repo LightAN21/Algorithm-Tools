@@ -65,7 +65,7 @@ function min_priority_queue_pop_min() {
         }
         else if (pre.priority <= n.priority) {
             add_tree_to_children(n, pre);
-            
+
         }
         else {
             add_tree_to_children(pre, n);
