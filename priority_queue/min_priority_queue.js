@@ -1,4 +1,4 @@
-// // Fibonacci heap
+// Fibonacci heap
 
 function new_min_priority_queue() {
     return {
@@ -27,7 +27,7 @@ function min_priority_queue_push(data, priority = 0) {
         this.min = n;
     else if (n.priority < this.min.priority)
         this.min = n;
-    this.length++;
+    this.length++;ㄢ
 }
 
 function min_priority_queue_pop_min() {
