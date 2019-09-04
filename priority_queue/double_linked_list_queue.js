@@ -26,6 +26,7 @@ function doubly_linked_list_queue_push(data) {
         n.next = this.first;
         this.last.next = n;
         this.first.pre = n;
+        this.last = n;
     }
     else {
         n.pre = n;
