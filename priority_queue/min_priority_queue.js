@@ -27,7 +27,7 @@ function min_priority_queue_push(data, priority = 0) {
         this.min = n;
     else if (n.priority < this.min.priority)
         this.min = n;
-    this.length++;ㄢ
+    this.length++;
 }
 
 function min_priority_queue_pop_min() {
