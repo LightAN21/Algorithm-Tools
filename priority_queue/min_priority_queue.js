@@ -31,13 +31,17 @@ function min_priority_queue_push(data, priority = 0) {
 }
 
 function min_priority_queue_pop_min() {
-    var m = this.min, n;
+    var m = this.min, tmp;
     var num = {};
 
     if (m == null)
         return null;
     melt_children_list_to_root_list(m, this.root_list);
     this.min = this.root_list.first;
+    num[this.min.data.children_list.length] = 1;
+    for (tmp = this.root_list.first.next; tmp != this.root_list.first; tmp = tmp.next){
+        
+    }
 
     return m;
 }
