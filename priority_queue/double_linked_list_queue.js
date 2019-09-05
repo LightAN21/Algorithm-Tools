@@ -23,14 +23,10 @@ function doubly_linked_list_queue_push(data) {
 
     if (this.first != null) {
         n.pre = this.last;
-        n.next = this.first;
         this.last.next = n;
-        this.first.pre = n;
         this.last = n;
     }
     else {
-        n.pre = n;
-        n.next = n;
         this.first = n;
         this.last = n;
     }
@@ -42,8 +38,7 @@ function doubly_linked_list_queue_pop() {
         return null;
 
     var pop_data = this.first.data;
-    this.first.next.pre = this.last;
-    this.last.next = this.first.next;
+    this.first.next.pre = null;
     this.first = this.first.next;
     this.length--;
     return pop_data;
@@ -51,14 +46,24 @@ function doubly_linked_list_queue_pop() {
 
 function doubly_linked_list_remove_node(n) {
     if (n == null)
-        return null
-    n.pre.next = n.next;
-    n.next.pre = n.pre;
+        return null;
+    if (n == this.first)
+        return this.pop();
+    else if (n == this.last) {
+        this.last = this.last.pre;
+        this.last.next = null;
+    }
+    else {
+        n.pre.next = n.next;
+        n.next.pre = n.pre;
+    }
     this.length--;
-    return n;
+    return n.data;
 }
 
 function doubly_linked_list_connect_nodes(n, m) {
-    n.next = m;
-    m.pre = n;
+    if (n != null && m != null) {
+        n.next = m;
+        m.pre = n;
+    }
 }

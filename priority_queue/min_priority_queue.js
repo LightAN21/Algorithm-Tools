@@ -31,18 +31,16 @@ function min_priority_queue_push(data, priority = 0) {
 }
 
 function min_priority_queue_pop_min() {
-    var m = this.min, tmp;
+    var m = this.min;
+    var root_list = this.root_list;
     var num = {};
+    var record = {};
+    var tmp;
 
     if (m == null)
         return null;
-    melt_children_list_to_root_list(m, this.root_list);
-    this.min = this.root_list.first;
-    num[this.min.data.children_list.length] = 1;
-    for (tmp = this.root_list.first.next; tmp != this.root_list.first; tmp = tmp.next){
-        
-    }
-
+    melt_children_list_to_root_list(m, root_list);
+    this.min = root_list.first;
     return m;
 }
 
@@ -51,11 +49,16 @@ function melt_children_list_to_root_list(node, root_list) {
         return;
     var m = node.data;
     if (m.children_list.first == null) {
-        root_list.connect(node.pre, node.next);
+        root_list.remove(node);
     }
     else {
         root_list.connect(node.pre, m.children_list.first);
         root_list.connect(m.children_list.last, node.next);
+        if (node == root_list.first)
+            root_list.first = m.children_list.first;
+        if (node == root_list.last)
+            root_list.last = m.children_list.last;
+        root_list.length += m.children_list.length - 1;
     }
 }
 
