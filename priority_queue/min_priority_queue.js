@@ -41,6 +41,8 @@ function min_priority_queue_pop_min() {
         return null;
     melt_children_list_to_root_list(m, root_list);
     this.min = root_list.first;
+
+    
     return m;
 }
 
