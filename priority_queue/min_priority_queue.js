@@ -43,7 +43,7 @@ function min_priority_queue_pop_min() {
     num[root_list.first.data.children_list.length] = root_list.first;
     for (var tmp = root_list.first.next; tmp != null; tmp = tmp.next) {
         var len = tmp.data.children_list.length;
-        if (tmp.data.priority < this.min.data.priority){
+        if (tmp.data.priority < this.min.data.priority) {
             this.min = tmp;
         }
         if (len in num) {
@@ -113,12 +113,13 @@ function min_priority_queue_print() {
     console.log('=========================================');
 }
 
-function min_priority_queue_print_debug(list){
+function min_priority_queue_print_debug(list) {
 
 }
 
 var pq = new_min_priority_queue();
 
+pq.push('22', 22);
 pq.push('2_1', 2);
 pq.push('6', 6);
 pq.push('1', 1);
@@ -128,7 +129,6 @@ pq.push('42', 42);
 pq.push('26', 26);
 pq.push('3', 3);
 pq.push('52', 52);
-pq.push('22', 22);
 pq.print();
 
 pq.pop_min();
