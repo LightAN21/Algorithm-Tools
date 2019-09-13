@@ -31,21 +31,46 @@ function min_priority_queue_push(data, priority = 0) {
 }
 
 function min_priority_queue_pop_min() {
-    var m = this.min;
     var root_list = this.root_list;
     var num = {};
-    var record = {};
 
-    if (m == null)
+    if (this.min == null)
         return null;
-    melt_children_list_to_root_list(m, root_list);
+    melt_children_list_to_root_list(this.min, root_list);
     this.min = root_list.first;
-    num[root_list.first.children_list.length] = root_list.first;
+    if (root_list.first == null)
+        return null;
+    num[root_list.first.data.children_list.length] = root_list.first;
     for (var tmp = root_list.first.next; tmp != null; tmp = tmp.next) {
-        
+        var len = tmp.data.children_list.length;
+        if (tmp.data.priority < this.min.data.priority){
+            this.min = tmp;
+        }
+        if (len in num) {
+            while (len in num) {
+                var pre = num[len];
+                delete num[len];
+
+                if (pre.data.priority <= tmp.data.priority) {
+                    pre.data.children_list.push(tmp.data);
+                    root_list.remove(tmp);
+                    len = pre.data.children_list.length;
+                    tmp = pre;
+                }
+                else {
+                    tmp.data.children_list.push(pre.data);
+                    root_list.remove(pre);
+                    len = tmp.data.children_list.length;
+                }
+            }
+            num[len] = tmp;
+        }
+        else {
+            num[len] = tmp;
+        }
     }
 
-    return m;
+    return this.min;
 }
 
 function melt_children_list_to_root_list(node, root_list) {
@@ -88,6 +113,10 @@ function min_priority_queue_print() {
     console.log('=========================================');
 }
 
+function min_priority_queue_print_debug(list){
+
+}
+
 var pq = new_min_priority_queue();
 
 pq.push('2_1', 2);
@@ -99,7 +128,20 @@ pq.push('42', 42);
 pq.push('26', 26);
 pq.push('3', 3);
 pq.push('52', 52);
+pq.push('22', 22);
 pq.print();
 
 pq.pop_min();
 pq.print();
+
+console.log(pq.min.data);
+console.log(pq.pop_min().data);
+console.log(pq.pop_min().data);
+console.log(pq.pop_min().data);
+console.log(pq.pop_min().data);
+console.log(pq.pop_min().data);
+console.log(pq.pop_min().data);
+console.log(pq.pop_min().data);
+console.log(pq.pop_min().data);
+console.log(pq.pop_min());
+console.log(pq.pop_min());

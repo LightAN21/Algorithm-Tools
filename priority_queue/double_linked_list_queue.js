@@ -38,7 +38,8 @@ function doubly_linked_list_queue_pop() {
         return null;
 
     var pop_data = this.first.data;
-    this.first.next.pre = null;
+    if (this.first.next != null)
+        this.first.next.pre = null;
     this.first = this.first.next;
     this.length--;
     return pop_data;
