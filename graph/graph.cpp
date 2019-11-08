@@ -9,7 +9,7 @@ typedef struct g_node
 {
 	int id;
 	void	*data;
-	map<int, struct node *> nb;
+	map<int, struct g_node *> nb;
 } g_node;
 
 class graph
@@ -32,6 +32,8 @@ class graph
 
 			n->id = id;
 			id_map.insert(pair<int, g_node *>(id, n));
+			if (!g)
+				g = n;
 			return n;
 		}
 
