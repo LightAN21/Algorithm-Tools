@@ -17,8 +17,6 @@ class graph
 	private:
 		g_node *g;
 		map<int, g_node *> id_map;
-		//map<int, g_node *>::iterator it1;
-		//map<int, g_node *>::iterator it2;
 
 	public:
 		graph()
@@ -75,7 +73,7 @@ class graph
 
 			if (g == 0)
 			{
-				cout << "graph:\n(null)" << endl;
+				cout << "graph: (null)" << endl;
 				return ;
 			}
 			for (auto it = id_map.begin(); it != id_map.end(); it++)
@@ -91,6 +89,11 @@ class graph
 					cout << " (" << it->first << ")";
 				cout << endl;
 			}
+		}
+
+		void	string_to_graph(string s)
+		{
+			
 		}
 };
 
