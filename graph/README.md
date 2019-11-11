@@ -8,6 +8,11 @@ Edges in a graph are either directed or undirected.
 
 Notation: we use (u, v) to represent an edge of a graph.
 
+### degree of vertices
+* The degree (or valency) of a vertex of a graph is the number of edges that are incident to the vertex, and in a multigraph, loops are counted twice.
+
+Notation: we use deg(v) to denote the degree of a vertex v of a graph.
+
 ### Undirected Graph
 * An undirected graph is a graph in which edges have no orientation.
 
@@ -86,5 +91,7 @@ The full graph ADT consists of the following operations, which provide access to
 
 # Reference
 [1] Data Structures and Algorithms in C++, by David Mount, Roberto Tamassia, Michael T. Goodrich
+
 [2] <a href="https://www.youtube.com/watch?v=09_LlHjoEiY">Algorithms Course - Graph Theory Tutorial from a Google Engineer</a> (on YouTube)
+
 
