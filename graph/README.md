@@ -113,6 +113,50 @@ An adjacency list is a way to represent a graph as a map from nodes to lists of 
 ### The Adjacency Matrix Structure
 A adjacency matrix m, m[i][j] reperesnts the dege weight of going from node i to node j.
 
+# Common Problems of Graphs
+
+### Shortest Path Problem
+Given a weighted graph, find the shortest path of deges from node A to node B.
+
+(Algorithms: BFS, Dijkstra's, Bellman-Ford, Floyd-Warshall, A*, ...)
+
+### Connectivity
+Does there exist a path between node A and node B?
+
+### Negative cycles
+Does the given weighted digraph have any negative cycles? If so, where?
+
+(Algorithms: Bellman-Ford, Floyd-Warshall)
+
+### Stronly Connected Components
+Is there any self-contained cycles within a directed graph?
+
+(Algorithms: Tarjan's and Kosaraju's algorithm)
+
+### Traveling Salesman Problem
+Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?
+
+(Algorithms: Held-Karp, branch and bound, ...)
+
+### Bridges
+A bridge (or cut edge) is an edge in a graph whose removal increases the number of connected components.
+How to find out bridges in a graph?
+
+### Minimum Spanning Tree (MST)
+A minimum spanning tree is a spanning tree of a connected weighted graph with the minium total edge weight.
+How to find the minimum spanning tree of a connected weighted graph?
+
+(Algorithms: Kruskal's, Prim's, Boruvka's algorithm)
+(Applications: least cost network, circuit design, transportation networks, ...)
+
+### Network flow: max flow
+With an infinite input source, how much "flow" can we push through the network?
+
+Suppose the edges are roads with cars, pipes with water or hallways with packed with people. Flow represents the volume of water allowed to flow through the pipes, the number of cars the roads can sustain in traffic and the maximum amount of people that can navigate through the hallways.
+
+(Algorithms: Ford-Fulkerson, Edmonds-Karp, Dinic's algorithm)
+
+
 # Reference
 [1] Data Structures and Algorithms in C++ (2nd ed), by David Mount, Roberto Tamassia, Michael T. Goodrich
 
