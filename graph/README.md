@@ -57,6 +57,12 @@ If a graph G is not connected, its maximal connected subgraphs are called the co
 
 * A spanning tree of a graph is a spanning subgraph that is a tree.
 
+### directed acyclic graph (DAG)
+* An directed acyclic graph is a directed graph with no cycles.
+
+### rooted trees
+* A rooted tree is a directed acyclic graph with a special node, called the root of the tree, such that every other node is joined by a directed path to the root, all nodes either point away(out-tree) or towards(in-tree) the root.
+
 # The graph abstract data type (ADT)
 The graph ADT defines two types: Vertex and Edge. (See reference [1])
 
