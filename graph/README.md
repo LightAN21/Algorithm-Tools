@@ -33,3 +33,22 @@ A cycle is a path that the first node of the path corresponds to the last.
 A directed path is a path such that all edges are directed and are traversed along their direction.
 
 A directed cycle is similarly defined.
+
+### subgraph
+A subgraph of a graph G is a graph H whose vertices and edges are subsets of the vertices and edges of G, respectively.
+
+### spanning subgraph
+A spanning subgraph of G is a subgraph of G that contains all the vertices of the graph G.
+
+### connected graph
+A graph is connected if, for any two vertices, there is a path between them.
+
+If a graph G is not connected, its maximal connected subgraphs are called the connected components of G.
+
+### forest, tree(free tree), and spanning tree
+A forest is a graph without cycles.
+
+A tree(or free tree) is a connected forest, that is, a connected graph without cycles.
+
+A spanning tree of a graph is a spanning subgraph that is a tree.
+
