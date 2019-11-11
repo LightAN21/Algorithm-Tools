@@ -84,13 +84,20 @@ The full graph ADT consists of the following operations, which provide access to
 * vertices(): Return a vertex list of all the vertices of the graph.
 * edges(): Return an edge list of all the edges of the graph.
 * insertVertex(x): Insert and return a new vertex storing element x.
-* insertEdge(v,w,x): Insert and return a new undirected edge with end vertices v and w and storing element x.
+* insertEdge(v, w, x): Insert and return a new undirected edge with end vertices v and w and storing element x.
 * eraseVertex(v): Remove vertex v and all its incident edges.
 * eraseEdge(e): Remove edge e.
 
+# Data Structures for Graphs
+
+### The Edge List Structure
+
+### The Adjacency List Structure
+
+### The Adjacency Matrix Structure
 
 # Reference
-[1] Data Structures and Algorithms in C++, by David Mount, Roberto Tamassia, Michael T. Goodrich
+[1] Data Structures and Algorithms in C++ (2nd ed), by David Mount, Roberto Tamassia, Michael T. Goodrich
 
 [2] <a href="https://www.youtube.com/watch?v=09_LlHjoEiY">Algorithms Course - Graph Theory Tutorial from a Google Engineer</a> (on YouTube)
 
