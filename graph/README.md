@@ -2,13 +2,13 @@
 
 A graph is a way to representing relationships that exist between pairs of objects.
 
-That is, a ghrph is simply a set V of objects, called vertices, and a collection E of pairs of vertices from V, called edges.
+That is, a ghrph is simply a set V of objects, called vertices or nodes, and a collection E of pairs of vertices from V, called edges.
 
 Edges in a graph are either directed or undirected.
 
 Notation: we use (u, v) to represent an edge of a graph.
 
-### degree of vertices
+### Degree of Vertices
 * The degree (or valency) of a vertex of a graph is the number of edges that are incident to the vertex, and in a multigraph, loops are counted twice.
 
 Notation: we use deg(v) to denote the degree of a vertex v of a graph.
@@ -28,40 +28,48 @@ The edge (u, v) represent a directed edge from node u to node v.
 
 Notation: we use (u, v, w) to represent an edge (u, v) with weight w in weighted graph.
 
-### path
+### Path
 * A path is a sequence of alternating vertices and edges that starts at a vertex and ends at a vertex such that each edge is incident to its predecessor and successor vertex.
 
-### cycle
+### Cycle
 * A cycle is a path that the first node of the path corresponds to the last.
 
-### directed path and directed cycle
+### Directed Path and Directed Cycle
 * A directed path is a path such that all edges are directed and are traversed along their direction.
 
 * A directed cycle is similarly defined.
 
-### subgraph
+### Subgraph
 * A subgraph of a graph G is a graph H whose vertices and edges are subsets of the vertices and edges of G, respectively.
 
-### spanning subgraph
+### Spanning subgraph
 * A spanning subgraph of G is a subgraph of G that contains all the vertices of the graph G.
 
-### connected graph
+### Connected graph
 * A graph is connected if, for any two vertices, there is a path between them.
 
 If a graph G is not connected, its maximal connected subgraphs are called the connected components of G.
 
-### forest, tree(free tree), and spanning tree
+### Forest, Tree(free tree), and Spanning tree
 * A forest is a graph without cycles.
 
 * A tree(or free tree) is a connected forest, that is, a connected graph without cycles.
 
 * A spanning tree of a graph is a spanning subgraph that is a tree.
 
-### directed acyclic graph (DAG)
+### Directed Acyclic Graph (DAG)
 * An directed acyclic graph is a directed graph with no cycles.
 
-### rooted trees
+### Rooted Trees
 * A rooted tree is a directed acyclic graph with a special node, called the root of the tree, such that every other node is joined by a directed path to the root, all nodes either point away(out-tree) or towards(in-tree) the root.
+
+### Bipartite Graph
+A bipartite graph is one whose vertives can be split into two independent groups U and V, such that every edge connects between U and V. (two colourable, no odd length cycle)
+
+### Complete graph
+A complete graph is one where there is a unique edge between every pair of nodes.
+
+Notation: A complete graph with n vertices is denoted as the graph K_n.
 
 # The graph abstract data type (ADT)
 The graph ADT defines two types: Vertex and Edge. (See reference [1])
@@ -97,10 +105,13 @@ The full graph ADT consists of the following operations, which provide access to
 # Data Structures for Graphs
 
 ### The Edge List Structure
+An edge list is a way to represent a graph simply as an unordered list of deges.
 
 ### The Adjacency List Structure
+An adjacency list is a way to represent a graph as a map from nodes to lists of edges that link to it.
 
 ### The Adjacency Matrix Structure
+A adjacency matrix m, m[i][j] reperesnts the dege weight of going from node i to node j.
 
 # Reference
 [1] Data Structures and Algorithms in C++ (2nd ed), by David Mount, Roberto Tamassia, Michael T. Goodrich
