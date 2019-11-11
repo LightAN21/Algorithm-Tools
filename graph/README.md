@@ -1,8 +1,8 @@
-## Graph
+# Graph
 
 A graph is a way to representing relationships that exist between pairs of objects.
 
-That is, a ghrph is a graph G is simply a set V of objects, called vertices and a collection E of pairs of vertices from V, called edges.
+That is, a ghrph is simply a set V of objects, called vertices, and a collection E of pairs of vertices from V, called edges.
 
 Edges in a graph are either directed or undirected.
 
@@ -51,4 +51,25 @@ If a graph G is not connected, its maximal connected subgraphs are called the co
 * A tree(or free tree) is a connected forest, that is, a connected graph without cycles.
 
 * A spanning tree of a graph is a spanning subgraph that is a tree.
+
+# The graph abstract data type (ADT)
+The graph ADT defines two types: Vertex and Edge.
+
+It also provides two list types for storing lists of vertices and edges, called VertexList and EdgeList, respectively.
+
+### Vertex 
+Each Vertex object u supports the following operations, which provide access to the vertex’s element and information regarding incident edges and adjacent ver- tices.
+
+* operator*(): Return the element associated with u.
+* incidentEdges(): Return an edge list of the edges incident on u.
+* isAdjacentTo(v): Test whether vertices u and v are adjacent.
+
+### Edge
+Each Edge object e supports the following operations, which provide access to the edge’s end vertices and information regarding the edge’s incidence relation- ships.
+
+
+
+### reference
+* Data Structures and Algorithms in C++, by David Mount, Roberto Tamassia, Michael T. Goodrich
+* <a herf="https://www.youtube.com/watch?v=09_LlHjoEiY">Algorithms Course - Graph Theory Tutorial from a Google Engineer</a> (on YouTube)
 
