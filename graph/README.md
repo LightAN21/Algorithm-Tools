@@ -67,9 +67,24 @@ Each Vertex object u supports the following operations, which provide access to 
 ### Edge
 Each Edge object e supports the following operations, which provide access to the edge’s end vertices and information regarding the edge’s incidence relation- ships.
 
+* operator*(): Return the element associated with e.
+* endVertices(): Return a vertex list containing e’s end vertices.
+* opposite(v): Return the end vertex of edge e distinct from vertex v; an error occurs if e is not incident on v.
+* isAdjacentTo(f): Test whether edges e and f are adjacent.
+* isIncidentOn(v): Test whether e is incident on v.
+
+### Other operations
+The full graph ADT consists of the following operations, which provide access to the lists of vertices and edges, and provide functions for modifying the graph.
+
+* vertices(): Return a vertex list of all the vertices of the graph.
+* edges(): Return an edge list of all the edges of the graph.
+* insertVertex(x): Insert and return a new vertex storing element x.
+* insertEdge(v,w,x): Insert and return a new undirected edge with end vertices v and w and storing element x.
+* eraseVertex(v): Remove vertex v and all its incident edges.
+* eraseEdge(e): Remove edge e.
 
 
-### reference
+# Reference
 * Data Structures and Algorithms in C++, by David Mount, Roberto Tamassia, Michael T. Goodrich
-* <a herf="https://www.youtube.com/watch?v=09_LlHjoEiY">Algorithms Course - Graph Theory Tutorial from a Google Engineer</a> (on YouTube)
+* <a href="https://www.youtube.com/watch?v=09_LlHjoEiY">Algorithms Course - Graph Theory Tutorial from a Google Engineer</a> (on YouTube)
 
