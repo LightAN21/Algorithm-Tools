@@ -84,7 +84,7 @@ Each Edge object e supports the following operations, which provide access to th
 * isAdjacentTo(f): Test whether edges e and f are adjacent.
 * isIncidentOn(v): Test whether e is incident on v.
 
-### Other operations
+### Basic operations
 The full graph ADT consists of the following operations, which provide access to the lists of vertices and edges, and provide functions for modifying the graph.
 
 * vertices(): Return a vertex list of all the vertices of the graph.
