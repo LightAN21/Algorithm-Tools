@@ -53,7 +53,7 @@ If a graph G is not connected, its maximal connected subgraphs are called the co
 * A spanning tree of a graph is a spanning subgraph that is a tree.
 
 # The graph abstract data type (ADT)
-The graph ADT defines two types: Vertex and Edge.
+The graph ADT defines two types: Vertex and Edge. (See reference [1])
 
 It also provides two list types for storing lists of vertices and edges, called VertexList and EdgeList, respectively.
 
@@ -85,6 +85,6 @@ The full graph ADT consists of the following operations, which provide access to
 
 
 # Reference
-* Data Structures and Algorithms in C++, by David Mount, Roberto Tamassia, Michael T. Goodrich
-* <a href="https://www.youtube.com/watch?v=09_LlHjoEiY">Algorithms Course - Graph Theory Tutorial from a Google Engineer</a> (on YouTube)
+[1] Data Structures and Algorithms in C++, by David Mount, Roberto Tamassia, Michael T. Goodrich
+[2] <a href="https://www.youtube.com/watch?v=09_LlHjoEiY">Algorithms Course - Graph Theory Tutorial from a Google Engineer</a> (on YouTube)
 
