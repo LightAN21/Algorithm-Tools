@@ -113,7 +113,7 @@ An adjacency list is a way to represent a graph as a map from nodes to lists of 
 ### The Adjacency Matrix Structure
 A adjacency matrix m, m[i][j] reperesnts the dege weight of going from node i to node j.
 
-# Common Problems of Graphs
+# Common Problems in Graph Theory
 
 ### Shortest Path Problem
 Given a weighted graph, find the shortest path of deges from node A to node B.
