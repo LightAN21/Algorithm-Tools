@@ -2,14 +2,15 @@
     "files.defaultLanguage": "cpp", 
     "files.associations": {
       "unordered_set": "cpp",
-      "vector": "cpp"
+      "vector": "cpp",
+      "unordered_map": "cpp"
     },
     "editor.formatOnType": true, 
     "editor.snippetSuggestions": "top",
     "code-runner.runInTerminal": true,
     "code-runner.executorMap": {
-      "c": "cd $dir && clang $fileName -o $fileNameWithoutExt.exe -Wall -Wextra -Werror -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw -std=c11 && $dir$fileNameWithoutExt",
-      "cpp": "cd $dir && clang++ $fileName -o $fileNameWithoutExt.exe -Wall -Wextra -Werror -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw -std=c++17 && $dir$fileNameWithoutExt"
+      "c": "cd $dir && clang $fileName -o $fileNameWithoutExt.exe -Wall -Wextra -Werror -fcolor-diagnostics -std=c11 && $dir$fileNameWithoutExt",
+      "cpp": "cd $dir && clang++ $fileName -o $fileNameWithoutExt.exe -Wall -Wextra -Werror -fcolor-diagnostics -std=c++17 && $dir$fileNameWithoutExt && rm $fileNameWithoutExt.exe"
     }, 
     "code-runner.saveFileBeforeRun": true, 
     "code-runner.preserveFocus": true, 
