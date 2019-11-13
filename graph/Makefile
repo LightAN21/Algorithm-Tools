@@ -14,7 +14,7 @@ NAME = graph
 
 FLAGS = -Wall -Wextra -Werror
 
-FLAGS_2 = -static-libgcc -fcolor-diagnostics -std=c++17
+FLAGS_2 = -fcolor-diagnostics -std=c++17
 
 FILES_0 = graph.cpp
 
