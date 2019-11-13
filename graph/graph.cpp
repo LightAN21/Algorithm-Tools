@@ -1,5 +1,5 @@
-#include <algorithm>
 #include <iostream>
+#include <algorithm>
 #include <map>
 #include <set>
 #include <vector>
@@ -9,93 +9,88 @@ using namespace std;
 typedef struct g_node
 {
 	int id;
-	void	*data;
+	void *data;
 	map<int, struct g_node *> nb;
 } g_node;
 
 class graph
 {
-	private:
-		g_node *g;
-		map<int, g_node *> id_map;
+private:
+	g_node *g;
+	map<int, g_node *> id_map;
 
-	public:
-		graph()
-		{
-			g = 0;
-		}
+public:
+	graph()
+	{
+		g = 0;
+	}
 
-		g_node *new_graph_node(int id)
-		{
-			g_node *n = new g_node;
+	g_node *new_vertex(int id)
+	{
+		g_node *n = new g_node;
 
-			n->id = id;
-			id_map.insert(pair<int, g_node *>(id, n));
-			if (!g)
-				g = n;
+		n->id = id;
+		id_map[id] = n;
+		if (!g)
+			g = n;
+		return n;
+	}
+
+	g_node *add_vertex(int id)
+	{
+		g_node *n;
+
+		n = id_map[id];
+		if (n)
 			return n;
-		}
+		return new_vertex(id);
+	}
 
-		g_node *add_graph_node(int id)
+	void add_edge(int a, int b)
+	{
+		g_node *n1;
+		g_node *n2;
+
+		n1 = id_map[a];
+		n2 = id_map[b];
+		if (!n1)
+			n1 = add_vertex(a);
+		if (!n2)
+			n2 = add_vertex(b);
+		if (!n1->nb[b])
 		{
-			g_node *n;
-
-			auto it = id_map.find(id);
-			if (it != id_map.end())
-				return it->second;
-			n = new g_node;
-			n->id = id;
-			id_map.insert(pair<int, g_node *>(id, n));
-			if (!g)
-				g = n;
-			return n;
+			n1->nb[b] = n2;
+			n2->nb[a] = n1;
 		}
+	}
 
-		void add_edge(int a, int b)
+	void print_graph()
+	{
+		vector<int> v;
+
+		if (g == 0)
 		{
-			g_node *n1;
-			g_node *n2;
-
-			auto it1 = id_map.find(a);
-			auto it2 = id_map.find(b);
-			n1 = (it1 == id_map.end()) ? new_graph_node(a) : it1->second;
-			n2 = (it1 == id_map.end()) ? new_graph_node(b) : it2->second;
-			if ((n1->nb).find(b) == n1->nb.end())
-			{
-				(n1->nb).insert(pair<int, g_node *>(b, n2));
-				(n2->nb).insert(pair<int, g_node *>(a, n1));
-			}
+			cout << "graph: (null)" << endl;
+			return;
 		}
-
-		void	print_graph()
+		for (auto it = id_map.begin(); it != id_map.end(); it++)
+			v.push_back(it->first);
+		sort(v.begin(), v.end());
+		cout << "graph:" << endl;
+		for (unsigned i = 0; i < v.size(); i++)
 		{
-			g_node *n;
-			vector<int> v;
-
-			if (g == 0)
-			{
-				cout << "graph: (null)" << endl;
-				return ;
-			}
-			for (auto it = id_map.begin(); it != id_map.end(); it++)
-				v.push_back(it->first);
-			sort(v.begin(), v.end());
-			cout << "graph:" << endl;
-			for (unsigned i = 0; i < v.size(); i++)
-			{
-				cout << "node (" << v[i] << ") with nbrs:";
-				auto k = id_map.find(v[i]);
-				n = k->second;
-				for (auto it = n->nb.begin(); it != n->nb.end(); it++)
-					cout << " (" << it->first << ")";
-				cout << endl;
-			}
+			cout << "node (" << v[i] << ") with nbrs:";
+			auto n = id_map[v[i]];
+			for (auto it = n->nb.begin(); it != n->nb.end(); it++)
+				cout << " (" << it->first << ")";
+			cout << endl;
 		}
+	}
 
-		void	string_to_graph(string s)
-		{
-			s = "";
-		}
+	void string_to_graph(string s)
+	{
+		s = "";
+	}
 };
 
 int main()
