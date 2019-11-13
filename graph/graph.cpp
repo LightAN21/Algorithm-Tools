@@ -1,7 +1,8 @@
+#include <algorithm>
 #include <iostream>
-#include <vector>
 #include <map>
 #include <set>
+#include <vector>
 
 using namespace std;
 
@@ -93,7 +94,7 @@ class graph
 
 		void	string_to_graph(string s)
 		{
-			
+			s = "";
 		}
 };
 

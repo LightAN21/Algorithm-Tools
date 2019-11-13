@@ -8,8 +8,8 @@
     "editor.snippetSuggestions": "top",
     "code-runner.runInTerminal": true,
     "code-runner.executorMap": {
-      "c": "cd $dir && clang $fileName -o $fileNameWithoutExt.exe -Wall -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw -std=c11 && $dir$fileNameWithoutExt",
-      "cpp": "cd $dir && clang++ $fileName -o $fileNameWithoutExt.exe -Wall -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw -std=c++17 && $dir$fileNameWithoutExt"
+      "c": "cd $dir && clang $fileName -o $fileNameWithoutExt.exe -Wall -Wextra -Werror -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw -std=c11 && $dir$fileNameWithoutExt",
+      "cpp": "cd $dir && clang++ $fileName -o $fileNameWithoutExt.exe -Wall -Wextra -Werror -g -Og -static-libgcc -fcolor-diagnostics --target=x86_64-w64-mingw -std=c++17 && $dir$fileNameWithoutExt"
     }, 
     "code-runner.saveFileBeforeRun": true, 
     "code-runner.preserveFocus": true, 
@@ -21,12 +21,16 @@
     "clang.cflags": [
       "--target=x86_64-w64-mingw",
       "-std=c11",
-      "-Wall"
+      "-Wall",
+      "-Wextra",
+      "-Werror"
     ],
     "clang.cxxflags": [ 
       "--target=x86_64-w64-mingw",
       "-std=c++17",
-      "-Wall"
+      "-Wall",
+      "-Wextra",
+      "-Werror"
     ],
     "clang.completion.enable": true 
   }

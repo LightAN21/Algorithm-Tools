@@ -14,6 +14,8 @@ NAME = graph
 
 FLAGS = -Wall -Wextra -Werror
 
+FLAGS_2 = -static-libgcc -fcolor-diagnostics -std=c++17
+
 FILES_0 = graph.cpp
 
 FILES_LS = $(addprefix src_ft_ls/, $(FILES_0))
@@ -23,7 +25,7 @@ O_FILES = $(FILES_0:.c=.o)
 all: $(NAME)
 
 $(NAME):
-	clang++ $(FLAGS) -std=c++17 -o $(NAME) $(FILES_0)
+	clang++ -o $(NAME) $(FLAGS) $(FLAGS_2) $(FILES_0)
 
 clean:
 	/bin/rm -f $(NAME)
